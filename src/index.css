@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cosmic Design System - Space/Astronomy Theme */
+
+@layer base {
+  :root {
+    /* Cosmic Background System */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 95%;
+
+    /* Space Cards */
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
+
+    /* Cosmic Overlays */
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Stellar Primary Colors */
+    --primary: 270 50% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Nebula Secondary */
+    --secondary: 200 50% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    /* Cosmic Muted */
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Cosmic Accent */
+    --accent: 180 50% 30%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Deep Space Colors */
+    --space-black: 0 0% 2%;
+    --deep-purple: 270 50% 15%;
+    --cosmic-purple: 270 50% 25%;
+    --nebula-blue: 220 80% 35%;
+    --cosmic-teal: 180 50% 30%;
+    --stellar-white: 0 0% 98%;
+
+    /* Cosmic Gradients */
+    --gradient-space: linear-gradient(180deg, hsl(var(--space-black)), hsl(var(--deep-purple)), hsl(var(--cosmic-purple)));
+    --gradient-nebula: linear-gradient(135deg, hsl(var(--deep-purple)), hsl(var(--nebula-blue)));
+    --gradient-cosmic: linear-gradient(180deg, hsl(var(--cosmic-purple)), hsl(var(--cosmic-teal)));
+    --gradient-stellar: linear-gradient(180deg, hsl(var(--cosmic-teal)), hsl(var(--stellar-white) / 0.1));
+
+    /* Cosmic Shadows */
+    --shadow-cosmic: 0 25px 50px -12px hsl(var(--cosmic-purple) / 0.4);
+    --shadow-nebula: 0 0 50px hsl(var(--nebula-blue) / 0.3);
+    --shadow-stellar: 0 0 30px hsl(var(--cosmic-teal) / 0.2);
+
+    /* Animations */
+    --transition-cosmic: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 15%;
+    --ring: 270 50% 40%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar (Cosmic Theme) */
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 270 50% 40%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 10% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 270 50% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+
+  .cosmic-text-glow {
+    text-shadow: 0 0 20px hsl(var(--cosmic-teal) / 0.5);
+  }
+
+  .stellar-glow {
+    box-shadow: 0 0 30px hsl(var(--cosmic-teal) / 0.3);
+  }
+
+  .nebula-glow {
+    box-shadow: var(--shadow-nebula);
+  }
+
+  .cosmic-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-space {
+    background: var(--gradient-space);
+  }
+
+  .gradient-nebula {
+    background: var(--gradient-nebula);
+  }
+
+  .gradient-cosmic {
+    background: var(--gradient-cosmic);
+  }
+
+  .gradient-stellar {
+    background: var(--gradient-stellar);
+  }
+
+  .section-space {
+    @apply min-h-screen relative overflow-hidden;
+  }
+
+  .cosmic-container {
+    @apply container mx-auto px-4 lg:px-8 max-w-7xl;
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .cosmic-fade-in {
+    animation: cosmic-fade-in 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes cosmic-fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+}
